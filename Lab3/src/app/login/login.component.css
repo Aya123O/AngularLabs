@@ -1,0 +1,21 @@
+
+p.mt-3 {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #6c757d; 
+    text-align: center;
+  }
+
+
+  p.mt-3 a {
+    color: #007bff;
+    text-decoration: none; 
+    font-weight: bold;
+    transition: color 0.3s ease; 
+  }
+
+
+  p.mt-3 a:hover {
+    color: #0056b3; 
+    text-decoration: underline; 
+  }

@@ -1,0 +1,15 @@
+<div class="card m-auto mt-3" style="width: 35rem; ">
+
+  <div class="card-body ">
+    <h5 class="card-title text-black-50">Todo App</h5>
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter new task"
+        [(ngModel)]="task">
+    </div>
+    <button class="btn btn-primary w-100" (click)="onAddTask()">Add</button>
+  </div>
+</div>
+

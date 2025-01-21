@@ -1,0 +1,23 @@
+<div class="container mt-4 mb-4">
+  <div class="row">
+  
+    <div class="col-12 col-md-6 mb-3">
+      <input type="text" class="form-control" [(ngModel)]="searchQuery" placeholder="Search by username or email" />
+    </div>
+    
+   
+    <div class="col-12 col-md-6 mb-3">
+      <select class="form-control" [(ngModel)]="selectedRole">
+        <option value="">All Roles</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+        <option value="moderator">Moderator</option>
+      </select>
+    </div>
+
+   
+    <div class="col-12 col-sm-6 col-md-4 mb-4" *ngFor="let user of filteredUsers()">
+      <app-user-card [user]="user"></app-user-card>
+    </div>
+  </div>
+</div>

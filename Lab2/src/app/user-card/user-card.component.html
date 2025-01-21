@@ -1,0 +1,15 @@
+<div class="card mb-3" style="width: 20rem;">
+    <img [src]="user.image" class="card-img-top" alt="User Profile Picture">
+    <div class="card-body">
+      <h5 class="card-title text-center text-capitalize text-black-50">{{ user.username }}</h5>
+      <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+      <p class="card-text"><strong>Phone:</strong> {{ user.phone }}</p>
+      <p class="card-text"><strong>Birthdate:</strong> {{ user.birthDate}}</p>
+      <span class="badge text-center px-2" [ngClass]="{
+        'bg-danger': user.role === 'admin',
+        'bg-success': user.role === 'user',
+        'bg-warning': user.role === 'moderator'
+      }">{{ user.role }}</span>
+    </div>
+  </div>
+  

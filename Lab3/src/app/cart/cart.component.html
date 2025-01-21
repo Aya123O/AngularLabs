@@ -1,0 +1,65 @@
+<h2 class="text-center text-success mb-4 mt-3">Cart</h2>
+<div class="container mt-5 d-flex justify-content-center w-100">
+  @if (cartProducts.length > 0) {
+    <div>
+      @for (product of cartProducts; track product) {
+        <div class="card mb-4 shadow-lg rounded border-light">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <button
+              class="btn btn-sm position-absolute top-0 start-0 m-2 rounded-4"
+              [ngClass]="{'btn-success': product.stock > 0, 'btn-danger': product.stock === 0}">
+              {{ product.stock > 0 ? 'In Stock' : 'Out of Stock' }}
+            </button>
+               <img
+                [src]="product.image"
+                class="img-fluid rounded-start"
+                alt="{{ product.title }}"
+                style="object-fit: contain; height: 250px;"
+              />
+               
+             
+              
+              
+              
+              
+             
+          
+           
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-black-50">{{ product.title }}</h5>
+                <p class="card-text text-muted mb-3">{{ product.shippingInformation}}</p>
+
+                <p><strong>Stock:</strong> <span class="text-danger">{{ product.stock }} items</span></p>
+                <p class="card-text mb-3"><strong>Price:</strong> ${{ product.price }}</p>
+                <p class="card-text mb-3"> <strong>Discount:</strong>2.9% off</p>
+                <p class="card-text">
+  <strong>Final Price:</strong> ${{ (product.price - (product.price * (2.9 / 100))).toFixed(2) }}
+                </p>
+
+
+                <div class="counter-container d-flex justify-content-center">
+                  <button (click)="increment(product.id)" class="btn btn-outline-secondary btn-sm">+</button>
+                  <span class="mx-2">{{ product.quantity }}</span>
+                  <button (click)="decrement(product.id)" class="btn btn-outline-secondary btn-sm">-</button>
+                </div>
+                <div class="text-center d-flex justify-content-center mt-3">
+                  <button class="btn btn-danger btn-sm me-3" (click)="removeFromCart(product.id)">
+                    Remove from Cart
+                  </button>
+                  <button (click)="goBack()" class="btn btn-outline-dark btn-sm w-28">Go Back</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="alert alert-warning text-center" role="alert">
+      Your cart is empty. Add some products!
+    </div>
+  }
+</div>

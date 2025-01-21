@@ -1,0 +1,44 @@
+
+.card-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .card-text {
+    font-size: 1rem;
+  }
+
+  .list-group-item {
+    border: none;
+    background-color: #f9f9f9;
+    padding: 1rem;
+  }
+
+  .btn-lg {
+    font-size: 1.1rem;
+    padding: 10px;
+  }
+
+  .text-danger {
+    color: #dc3545 !important;
+  }
+
+  .text-muted {
+    font-size: 0.8rem;
+  }
+
+  .badge {
+    font-size: 1rem;
+  }
+
+  .badge.bg-success {
+    background-color: #28a745 !important;
+  }
+
+  .badge.bg-warning {
+    background-color: #ffc107 !important;
+  }
+
+  .card-body {
+    padding: 2rem;
+  }

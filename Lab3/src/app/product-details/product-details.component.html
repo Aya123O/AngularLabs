@@ -1,0 +1,63 @@
+@if (product) {
+  <div class="container my-5">
+    <div class="row">
+      <!-- Product Image Section -->
+      <div class="col-md-5">
+        <div class="card shadow-lg rounded border-light">
+          <div class="card-header text-center">
+            <img [src]="product.images[0]" class="card-img-top img-fluid" alt="{{ product.title }}" style="object-fit: contain; height: 350px;" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-7">
+        <div class="card shadow-lg rounded border-light">
+          <div class="card-body">
+            <h2 class="card-title text-center text-primary mb-4">{{ product.title }}</h2>
+            <p class="card-text text-muted mb-3">{{ product.description}}</p>
+            <div class="d-flex justify-content-between mb-4">
+              <p><strong>Price:</strong> <span class="text-success">${{ product.price }}</span></p>
+              <p><strong>Category:</strong> <span class="badge bg-warning text-dark">{{ product.category }}</span></p>
+            </div>
+            <div class="d-flex justify-content-between mb-4">
+              <p><strong>Stock:</strong> <span class="text-danger">{{ product.stock }} items</span></p>
+              <p><strong>Rating:</strong>
+              <span class="badge bg-success text-dark">{{ product.rating }}</span>
+              <span class="text-muted">/ 5</span>
+            </p>
+          </div>
+          <!-- Reviews Section -->
+          <h5 class="text-center text-primary mb-3">Customer Reviews</h5>
+          <ul class="list-group mb-4">
+            @for (review of product.reviews; track review) {
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <strong>{{ review.reviewerName }}</strong>
+                  <span class="badge bg-primary">{{ review.rating }} / 5</span>
+                </div>
+                <p class="mb-1">{{ review.comment }}</p>
+                <small class="text-muted">{{ review.date | date }}</small>
+              </li>
+            }
+          </ul>
+          <div class="d-flex justify-content-between">
+            <button
+              class="btn btn-warning btn-sm w-25 "
+              (click)="addToCart(product)">
+              Add to Cart
+            </button>
+            <button (click)="goBack()" class="btn btn-outline-dark btn-lg w-25">Go Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}
+
+<!-- Fallback if no product is found -->
+@if (!product) {
+  <div class="container text-center my-5">
+    <h3 class="text-danger">Product not found...</h3>
+  </div>
+}
